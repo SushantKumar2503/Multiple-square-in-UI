@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+
+Container roundedSquare(
+  {
+   double width=150,
+   double height=150,
+    required Color bgColor,
+    required Color textColor,
+    required String text,
+  
+}){
+   return Container(
+      child: Center(
+        child: Text(
+          text,
+          style: TextStyle(fontWeight: FontWeight.bold,color: textColor),
+        ),
+      ),
+      width: width,
+      margin:EdgeInsets.symmetric(horizontal: 10.0),
+      height: height,
+      decoration: BoxDecoration(
+        color: bgColor,
+        borderRadius: BorderRadius.circular(15.0),
+        border: Border.all(color: Colors.red,width: 1)
+      ),
+   );
+}
+
+void main(){
+  runApp(
+    MaterialApp(
+      home: SafeArea(
+        child: Column(
+          
+           //crossAxisAlignment: CrossAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.spaceAround,
+           children: [
+             Container(width: double.infinity),
+             SizedBox(height: 10),
+              roundedSquare(
+               bgColor: Colors.yellow,
+                textColor: Colors.black,
+                 text: "Square1"),
+                 SizedBox(height: 10),
+                 roundedSquare( bgColor: Colors.purple, textColor: Colors.blue, text: "Square2"),
+                 SizedBox(height:10),
+                 roundedSquare( bgColor: Colors.green, textColor: Colors.yellow, text: "Square3"),
+                 SizedBox(height:14),
+                 roundedSquare(width:200,bgColor: Colors.red, textColor: Colors.black, text: "Big Square"),
+                
+           ],
+        ),
+      ),
+    ),
+  );
+}
